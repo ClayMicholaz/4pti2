@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background: #f5f7fa ;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.header{
+    height: 90px;
+    background: rgb(51, 181, 3);
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+}
+.wrapper{
+    display: flex;
+    flex: 1;
+}
+.content{
+    flex: 1;
+    padding: 25px 55px;
+}
+.sidebar{
+    width: 230px;
+    background: rgb(7, 7, 6);
+}
+.sidebar ul{
+    list-style: none;
+    padding: 15px;
+    margin: 0;
+    padding-left: 0;
+}
+.sidebar li a{
+    display: flex;
+    padding: 14px 22px;
+    color: #fcfdff;
+    text-decoration: none;
+    gap: 10px;
+}
+.sidebar li a:hover, 
+.sidebar .active a{
+    background: #557099;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background: #f5f7fa;
+}
+th{
+    padding: 15px;
+    background-color:  rgb(51, 181, 3);
+    color: #fff;
+}
+td{
+    padding: 1px 10px;
+
+
+}
+tbody tr:hover{
+    background-color: #d3dde2;
+}
+.nomor{
+    width: 10%;
+}
+td.nomor{
+    text-align: center;
+}
+.aksi{
+    width: 30%;
+}
+td.aksi{
+    text-align: center;
+}
+.aksi .btn{
+    display: inline-block;
+    padding: 15px 35px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14pt;
+    margin: 5px;
+}
+.btn-edit{
+    background-color: rgb(240, 185, 5);
+}
+.btn-edit:hover{
+    background-color: rgb(193, 149, 6);
+}
+.btn-hapus{
+    background-color: rgb(219, 5, 26);
+}
+.btn-hapus:hover{
+    background-color: rgb(192, 4, 23);
+}
+.btn-tambah{
+    background: rgb(32, 115, 3);
+    color: #fff;
+    border: 0px;
+    padding: 12px 45px;
+    border-radius: 8px;
+}
+.btn-tambah:hover{
+    background: rgb(20, 64, 3);
+}
+input{
+    width: 20%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 12pt;
+    margin-right: 15px;
+    margin-top: 12px;
+}
+.footer{
+    height: 60px;
+    background: rgb(51, 181, 3);
+    color: #f5f7fa;
+    display: flex;
+    align-items: center;
+   justify-content: center;
+   font-size: 10pt;
+
+}
