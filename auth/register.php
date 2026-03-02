@@ -83,6 +83,7 @@ unset(
                 </button>
             </div>
             <button type="submit" name="register">Sign Up</button>
+            <button type="button" id="login" name="login" onclick="window.location.href='login.php'">Login</button>
         </form>
         <div class="login-footer">
             &copy <?= date('Y'); ?> Human Resource Information System
@@ -91,13 +92,13 @@ unset(
     <script>
         document.querySelectorAll('.toggle-password').forEach(function (button) {
             button.addEventListener('click', function () {
-                var targetId = button.getAttribute('data-target');
-                var input = document.getElementById(targetId);
-                var icon = button.querySelector('i');
+                let targetId = button.getAttribute('data-target');
+                let input = document.getElementById(targetId);
+                let icon = button.querySelector('i');
                 if (!input || !icon) {
                     return;
                 }
-                var isPassword = input.type === 'password';
+                let isPassword = input.type === 'password';
                 input.type = isPassword ? 'text' : 'password';
                 icon.classList.toggle('fa-eye', !isPassword);
                 icon.classList.toggle('fa-eye-slash', isPassword);
