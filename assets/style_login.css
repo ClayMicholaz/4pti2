@@ -57,6 +57,12 @@ button#login {
   margin-top: 10px;
 }
 
+button#register {
+  background: #eae60b;
+  color: #333;
+  margin-top: 10px;
+}
+
 .password-field {
   position: relative;
   margin-bottom: 12px;
