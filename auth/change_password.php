@@ -28,7 +28,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubah Password</title>
     <link rel="stylesheet" href="../assets/style_login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="login-card">
@@ -45,9 +47,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){
         <?php if(!$message): ?>
         <form method="post">
             <input type="text" name="username" placeholder="Username" required>
-            <div class="password-wrapper">
+            <div class="password-field">
                 <input type="password" id="password" name="new_password" placeholder="New Password" required>
-                <span id="togglePassword" class="toggle-password" title="Password hidden"><i class="fa-solid fa-eye-slash"></i></span>
+                <button type="button" class="toggle-password" data-target="password" aria-label="Show password">
+                    <i class="fa-solid fa-eye"></i>
+                </button>
             </div>
             <button type="submit" name="submit">Change Password</button>
             <p><a href="login.php">Back to login page</a></p>
@@ -60,21 +64,20 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])){
     </div>
 
     <script>
-        const toggle = document.getElementById('togglePassword');
-        const password = document.getElementById('password');
-        toggle.addEventListener('click', function () {
-            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-            password.setAttribute('type', type);
-            const icon = this.querySelector('i');
-            if(type === 'password'){
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-                this.title = 'Password hidden';
-            } else {
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-                this.title = 'Password visible';
-            }
+        document.querySelectorAll('.toggle-password').forEach(function (button) {
+            button.addEventListener('click', function () {
+                let targetId = button.getAttribute('data-target');
+                let input = document.getElementById(targetId);
+                let icon = button.querySelector('i');
+                if (!input || !icon) {
+                    return;
+                }
+                let isPassword = input.type === 'password';
+                input.type = isPassword ? 'text' : 'password';
+                icon.classList.toggle('fa-eye', !isPassword);
+                icon.classList.toggle('fa-eye-slash', isPassword);
+                button.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
+            });
         });
     </script>
 </body>

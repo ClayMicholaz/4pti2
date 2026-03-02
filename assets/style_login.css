@@ -99,3 +99,45 @@ button#register {
   font-size: 10pt;
   color: #747373;
 }
+.password-wrapper {
+  position: relative;
+}
+.password-wrapper input {
+  width: 100%;
+  padding-right: 54px;
+}
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 22px;
+  color: #555;
+  user-select: none;
+  background: none;
+  border: none;
+  padding: 4px;
+  line-height: 1;
+}
+.toggle-password i {
+  pointer-events: none;
+}
+.login-card button {
+  width: 100%;
+  padding: 12px;
+  background: #09631d;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  font-size: 14pt;
+  cursor: pointer;
+}
+.login-card button:hover {
+  background: #085218;
+  color: #eae60b;
+}
