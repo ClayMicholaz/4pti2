@@ -11,7 +11,6 @@ $errors = [];
 $name = trim($_POST['nama'] ?? "");
 $email = trim($_POST['email'] ?? "");
 $tanggalLahir = trim($_POST['tanggallahir'] ?? "");
-$idJabatan = trim($_POST['idjabatan'] ?? "");
 $username = trim($_POST['username'] ?? "");
 $password = $_POST['password'] ?? "";
 $confirmPassword = $_POST['confirm_password'] ?? "";
@@ -24,9 +23,6 @@ if ($email === "") {
 }
 if ($tanggalLahir === "") {
     $errors[] = "Tanggal lahir wajib diisi.";
-}
-if ($idJabatan === "" || !in_array($idJabatan, ["1", "2"], true)) {
-    $errors[] = "Jabatan wajib dipilih.";
 }
 if ($username === "") {
     $errors[] = "Username wajib diisi.";
@@ -53,10 +49,9 @@ if (count($errors) === 0) {
         } else {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             $stmt = $db->conn->prepare(
-                "INSERT INTO tbl_pegawai (nama, email, username, password, role, idjabatan, tanggallahir) VALUES (?, ?, ?, ?, 'user', ?, ?)"
+                "INSERT INTO tbl_pegawai (nama, email, username, password, role, idjabatan, tanggallahir) VALUES (?, ?, ?, ?, 'user', NULL, ?)"
             );
-            $idJabatanInt = (int) $idJabatan;
-            $stmt->bind_param("ssssis", $name, $email, $username, $hashedPassword, $idJabatanInt, $tanggalLahir);
+            $stmt->bind_param("sssss", $name, $email, $username, $hashedPassword, $tanggalLahir);
 
             if ($stmt->execute()) {
                 header("Location: /4pti2/auth/login.php");
@@ -77,7 +72,6 @@ if (count($errors) > 0) {
     $_SESSION['register_name'] = $name;
     $_SESSION['register_email'] = $email;
     $_SESSION['register_tanggallahir'] = $tanggalLahir;
-    $_SESSION['register_jabatan'] = $idJabatan;
     $_SESSION['register_username'] = $username;
 }
 

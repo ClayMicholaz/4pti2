@@ -6,7 +6,6 @@ $success = $_SESSION['register_success'] ?? "";
 $name = $_SESSION['register_name'] ?? "";
 $email = $_SESSION['register_email'] ?? "";
 $tanggalLahir = $_SESSION['register_tanggallahir'] ?? "";
-$jabatan = $_SESSION['register_jabatan'] ?? "";
 $username = $_SESSION['register_username'] ?? "";
 
 unset(
@@ -15,7 +14,6 @@ unset(
     $_SESSION['register_name'],
     $_SESSION['register_email'],
     $_SESSION['register_tanggallahir'],
-    $_SESSION['register_jabatan'],
     $_SESSION['register_username']
 );
 ?>
@@ -61,11 +59,6 @@ unset(
                 value="<?= htmlspecialchars($email, ENT_QUOTES, 'UTF-8'); ?>">
             <input type="date" name="tanggallahir" required
                 value="<?= htmlspecialchars($tanggalLahir, ENT_QUOTES, 'UTF-8'); ?>">
-            <select name="idjabatan" required>
-                <option value="" disabled <?= $jabatan === "" ? "selected" : ""; ?>>Pilih Jabatan</option>
-                <option value="1" <?= $jabatan === "1" ? "selected" : ""; ?>>IT Manager</option>
-                <option value="2" <?= $jabatan === "2" ? "selected" : ""; ?>>Data Analis</option>
-            </select>
             <input type="text" name="username" placeholder="Username" required
                 value="<?= htmlspecialchars($username, ENT_QUOTES, 'UTF-8'); ?>">
             <div class="password-field">
