@@ -150,7 +150,7 @@ if (!isset($_SESSION['notifications'])) {
 ?>
 <main>
     <h2>Dashboard HRD</h2>
-    <p>Kelola Data Pegawai dan Jabatan</p>
+    <p></p>
 
     <!-- Bagian Notifikasi -->
     <section class="notifications mt-4">
